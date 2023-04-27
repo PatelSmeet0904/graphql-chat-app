@@ -1,4 +1,3 @@
-![Preview](./chat-app-preview.png)
 
 # GraphQL-chat-app
 
