@@ -6,22 +6,23 @@ import { WebSocketServer } from "ws";
 import express from "express";
 import { useServer } from "graphql-ws/lib/use/ws";
 import { makeExecutableSchema } from "@graphql-tools/schema";
-// import path from 'path'
-// import { fileURLToPath } from 'url';
-// import { dirname } from 'path';
+import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const port = process.env.PORT || 4000;
 
 // create express
 const app = express();
-// app.use(express.static(path.join(__dirname, 'build')));
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.use(express.static(path.join(__dirname, "client",'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "client",'build', 'index.html'));
+});
 
 const context = ({ req }) => {
   const { authorization } = req.headers;
