@@ -9,8 +9,6 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import path from 'path'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import dotenv from 'dotenv'
-dotenv.config()
 // console.log(process.env.PORT);
 
 const __filename = fileURLToPath(import.meta.url);
